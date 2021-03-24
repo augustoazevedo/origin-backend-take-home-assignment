@@ -1,3 +1,4 @@
+import { InsuranceRiskRules } from '../insuranceRiskRules';
 import { ClientProfile } from '../interfaces/ClientProfile';
 import { InsuranceLine } from './insuranceLine.abstract';
 
@@ -10,11 +11,7 @@ export class InsuranceLineLife extends InsuranceLine {
     return clientProfile.age < 60;
   }
 
-  //TODO: Extract rule parameters to external variables
-  public lineSpecificRiskRules(clientProfile: ClientProfile, baseScore: number): number {
-    let riskScore = baseScore;
-    if (clientProfile.dependents > 0) riskScore = riskScore + 1;
-    if (clientProfile.marital_status == 'married') riskScore = riskScore + 1;
-    return riskScore;
+  public lineSpecificRiskRules(clientProfile: ClientProfile, riskScore: number): number {
+    return new InsuranceRiskRules(clientProfile, riskScore).hasDependents(1).isMarried(1).result();
   }
 }
