@@ -1,0 +1,46 @@
+{
+	"info": {
+		"_postman_id": "3d9590a1-3e00-4225-ad01-4a838e6c0c8d",
+		"name": "Origin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Index",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Insurance Sugestions",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n  \"age\": 35,\n  \"dependents\": 1,\n  \"house\": {\"ownership_status\": \"owned\"},\n  \"income\": \"200\",\n  \"marital_status\": \"married\",\n  \"risk_questions\": [0, 1, 0],\n  \"vehicle\": {\"year\": 2021}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/insurance/plansugestions",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"insurance",
+						"plansugestions"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

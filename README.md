@@ -48,6 +48,8 @@ npm start
 
 8. Errors are mapped and identified with a code to improve troubleshooting.
 
+9. Some node dependencies need to be updated.
+
 ## Development instructions
 
 Origin offers its users an insurance package personalized to their specific needs without requiring the user to understand anything about insurance. This allows Origin to act as their *de facto* insurance advisor.
