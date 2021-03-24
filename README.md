@@ -1,4 +1,55 @@
 # Origin Backend Take-Home Assignment
+
+## Running the project
+
+You can run the project in two diferent ways. Using `docker` or `node`.
+
+### Running on Docker
+
+If you have docker-compose instaled:
+
+```sh
+docker-compose up --build --force-recreate
+```
+
+or build run the container directly:
+
+```sh
+docker build . -t origin-backend
+docker run -p 3000:3000 origin-backend
+```
+
+### Running on Node
+
+If you have NodeJS and NPM installed run the following commands:
+
+```sh
+npm install
+npm start
+```
+
+## Technical decisions and comments
+
+1. The project is organized by features.
+
+2. The insurance lines extend a abstract class `InsuranceLine` that orients the implementation of new insurance lines.
+
+3. Unit tests are focused on covering business rules.
+
+4. There is room for improvment. Some points are comented along the code.
+
+5. Automatic code formmat and lint are defalut and import to support adoption of best practices.
+
+6. The docker build is done in two fases so that the final container is smaller and contains only the artifacts necessary for production.
+     - In the first fase transpilation, lint and tests are executed.
+     - In the second fase the transpiled code is copied and only production dependencies are installed.
+
+7. Test coverage is outputed on the console to encourage constant revision.
+
+8. Errors are mapped and identified with a code to improve troubleshooting.
+
+## Development instructions
+
 Origin offers its users an insurance package personalized to their specific needs without requiring the user to understand anything about insurance. This allows Origin to act as their *de facto* insurance advisor.
 
 Origin determines the user’s insurance needs by asking personal & risk-related questions and gathering information about the user’s vehicle and house. Using this data, Origin determines their risk profile for **each** line of insurance and then suggests an insurance plan (`"economic"`, `"regular"`, `"responsible"`) corresponding to her risk profile.
